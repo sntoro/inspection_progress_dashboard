@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Inspection Schedule</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <script src="/socket.io/socket.io.js"></script>
+
+        <link href="css/setup_chute.css" type="text/css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/font-style.css" rel="stylesheet">
+        <link href="css/register.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="img/icon_calendar.ico">
+
+        <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> -->
+
+        <style type="text/css">
+            body {
+                padding-top: 80px;
+            }
+        </style>
+
+	</head>
+
+    <script type="text/javascript">
+
+        var socket_localhost = io.connect();
+        socket_localhost.on('broadcast', function (data) {
+            console.log(data);
+        });
+        
+        var socket_ascc01 = io.connect('http://172.16.37.112:8080');
+
+        socket_ascc01.on('display_data', function (data) {
+           document.getElementById('work-center-ascc01').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascc01").textContent = data.chr_pno;
+           document.getElementById("status-ascc01").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascc02 = io.connect('http://172.16.37.101:8080');
+
+        socket_ascc02.on('display_data', function (data) {
+           document.getElementById('work-center-ascc02').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascc02").textContent = data.chr_pno;
+           document.getElementById("status-ascc02").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascc03 = io.connect('http://172.16.37.103:8080');
+
+        socket_ascc03.on('display_data', function (data) {
+           document.getElementById('work-center-ascc03').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascc03").textContent = data.chr_pno;
+           document.getElementById("status-ascc03").textContent = data.int_flg_linestop;
+
+        });
+
+        
+        var socket_ascc04 = io.connect('http://172.16.37.102:8080');
+
+        socket_ascc04.on('display_data', function (data) {
+           document.getElementById('work-center-ascc04').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascc04").textContent = data.chr_pno;
+           document.getElementById("status-ascc04").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascc05 = io.connect('http://172.16.37.102:8081');
+
+        socket_ascc05.on('display_data', function (data) {
+           document.getElementById('work-center-ascc05').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascc05").textContent = data.chr_pno;
+           document.getElementById("status-ascc05").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascd01 = io.connect('http://172.16.37.105:8080');
+
+        socket_ascd01.on('display_data', function (data) {
+           document.getElementById('work-center-ascd01').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascd01").textContent = data.chr_pno;
+           document.getElementById("status-ascd01").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascd02 = io.connect('http://172.16.37.131:8080');
+
+        socket_ascd02.on('display_data', function (data) {
+           document.getElementById('work-center-ascd02').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascd02").textContent = data.chr_pno;
+           document.getElementById("status-ascd02").textContent = data.int_flg_linestop;
+
+        });
+
+        var socket_ascd03 = io.connect('http://172.16.37.104:8080');
+
+        socket_ascd03.on('display_data', function (data) {
+           document.getElementById('work-center-ascd03').textContent = data.chr_wcenter; 
+           document.getElementById("part-no-ascd03").textContent = data.chr_pno;
+           document.getElementById("status-ascd03").textContent = data.int_flg_linestop;
+
+        });
+
+    </script>   
+
+	        <body>
+                <div class="navbar-nav navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            Name of organization
+                        </div> 
+                        <div class="navbar-header" style='float:right'>
+                            Inspection Schedule
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+
+                    <div class="row">
+              
+                      <div class="col-sm-6 col-lg-6">
+                            <div class="dash-unit">
+                                <dtitle>On Production</dtitle>
+                                <hr>
+                                <!-- <br>
+                                <h2></h2> -->
+                                    <table style='width:100%;border-collapse: collapse;'>
+                                        <thead>
+                                        <tr>
+                                            <th><ok>Work Center</ok></th>
+                                            <th><ok>Part No</ok></th>
+                                            <th><ok>Status</ok></th>
+                                            <th><ok>Part Progress</ok></th>
+                                            <th><ok>PIC</ok></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><span id='work-center-ascd01'></span></td>
+                                            <td><span id='part-no-ascd01'></span></td>
+                                            <td><span id='status-ascd01'></span></td>
+                                            <td><span id='part-inspection-ascd01'></span>-</td>
+                                            <td><span id='pic-inspection-ascd01'></span>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id='work-center-ascd02'></span></td>
+                                            <td><span id='part-no-ascd02'></span></td>
+                                            <td><span id='status-ascd02'></span></td>
+                                            <td><span id='part-inspection-ascd02'></span>-</td>
+                                            <td><span id='pic-inspection-ascd02'></span>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span id='work-center-ascd03'></span></td>
+                                            <td><span id='part-no-ascd03'></span></td>
+                                            <td><span id='status-ascd03'></span></td>
+                                            <td><span id='part-inspection-ascd03'></span>-</td>
+                                            <td><span id='pic-inspection-ascd03'></span>-</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                              </div>
+                      </div>
+              
+                      <div class="col-sm-3 col-lg-3">
+                            <div class="dash-unit">
+                                <dtitle>Achievement</dtitle>
+                                <hr>
+                              <!-- <h2></h2> -->
+                              <table style='width:100%;border-collapse: collapse;'>
+                                <thead>
+                                    <tr>
+                                        <th><span></span></th>
+                                        <th><span>Target</span></th>
+                                        <th><span>Plan</span></th>
+                                        <th><span>Actual</span></th>
+                                        <th><span>Achiv.</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>Daily</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>Monthly</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                        <td><span aria-hidden="true">200</span></td>
+                                    </tr>
+                                </tbody>
+                             </table>
+                          </div>
+                      </div>
+                      
+                      <div class="col-sm-3 col-lg-3">
+                        <div class="dash-unit">
+                            <dtitle>Setup Chute</dtitle>
+                            <hr>
+                          <!-- <div id="space"></div>
+                          <h2></h2> -->
+                      </div>
+                  </div>
+
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="dash-unit">
+                                <dtitle>On Production</dtitle>
+                                <hr>
+                              <!-- <h2></h2> -->
+                              <table style='width:100%;border-collapse: collapse;'>
+                                <thead>
+                                <tr>
+                                    <th><ok>Work Center</ok></th>
+                                    <th><ok>Part No</ok></th>
+                                    <th><ok>Status</ok></th>
+                                    <th><ok>Part Progress</ok></th>
+                                    <th><ok>PIC</ok></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><span id='work-center-ascc01'></span></td>
+                                    <td><span id='part-no-ascc01'></span></td>
+                                    <td><span id='status-ascc01'></span></td>
+                                    <td><span id='part-inspection-ascc01'></span>-</td>
+                                    <td><span id='pic-inspection-ascc01'></span>-</td>
+                                </tr>
+                                <tr>
+                                    <td><span id='work-center-ascc02'></span></td>
+                                    <td><span id='part-no-ascc02'></span></td>
+                                    <td><span id='status-ascc02'></span></td>
+                                    <td><span id='part-inspection-ascc02'></span>-</td>
+                                    <td><span id='pic-inspection-ascc02'></span>-</td>
+                                </tr>
+                                <tr>
+                                    <td><span id='work-center-ascc03'></span></td>
+                                    <td><span id='part-no-ascc03'></span></td>
+                                    <td><span id='status-ascc03'></span></td>
+                                    <td><span id='part-inspection-ascc03'></span>-</td>
+                                    <td><span id='pic-inspection-ascc03'></span>-</td>
+                                </tr>
+                                <tr>
+                                    <td><span id='work-center-ascc04'></span></td>
+                                    <td><span id='part-no-ascc04'></span></td>
+                                    <td><span id='status-ascc04'></span></td>
+                                    <td><span id='part-inspection-ascc04'></span>-</td>
+                                    <td><span id='pic-inspection-ascc04'></span>-</td>
+                                </tr>
+                                <tr>
+                                    <td><span id='work-center-ascc05'></span></td>
+                                    <td><span id='part-no-ascc05'></span></td>
+                                    <td><span id='status-ascc05'></span></td>
+                                    <td><span id='part-inspection-ascc05'></span>-</td>
+                                    <td><span id='pic-inspection-ascc05'></span>-</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                              </div>
+                      </div>
+              
+                      <div class="col-sm-3 col-lg-3">
+                            <div class="dash-unit">
+                                <dtitle>Achievement</dtitle>
+                                <hr>
+                                <table style='width:100%;border-collapse: collapse;'>
+                                        <thead>
+                                            <tr>
+                                                <th><span></span></th>
+                                                <th><span>Target</span></th>
+                                                <th><span>Plan</span></th>
+                                                <th><span>Actual</span></th>
+                                                <th><span>Achiv.</span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span>Daily</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span>Monthly</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                                <td><span aria-hidden="true">200</span></td>
+                                            </tr>
+                                        </tbody>
+                                     </table>
+              
+                          </div>
+                      </div>
+                      
+                      <div class="col-sm-3 col-lg-3">
+                            <div class="dash-unit">
+                                <dtitle>Setup Chute</dtitle>
+                                <hr>
+                                <!-- <br>
+                              <div class="cont">
+                                  <p></p>
+                              </div>    -->
+                          </div>
+                      </div>
+                    </div>
+                   
+                    
+                </div>
+
+	<div id="footerwrap">
+      	<footer class="clearfix"></footer>
+      	<div class="container">
+      		<div class="row">
+      			<div class="col-sm-12 col-lg-12">
+      			<p>Developed by ? - Copyright 2019</p>
+      			</div>
+
+      		</div><!-- /row -->
+      	</div><!-- /container -->		
+	</div><!-- /footerwrap -->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
+
+  
+</body></html>
+   
