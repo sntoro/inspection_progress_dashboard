@@ -1,0 +1,235 @@
+body{
+    width: 100%;
+    display: table;
+    margin: 0;
+    max-width: none;
+    height: 100vh;
+}
+
+section{
+    padding: 1%;
+    color: #FFFF22;
+    font-size: 1.2em;
+}
+
+#setup-chute-table{
+    font-size: 2em;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.table{
+    border: none;
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: separate;
+}
+
+.table td.top {
+    vertical-align: top;
+}
+
+.table td.bottom {
+    vertical-align: bottom;
+}
+
+.table td.middle {
+    vertical-align: middle;
+}
+
+.box{
+    border: none;;
+    width: 20%;
+    text-align: center;
+}
+
+.box-total-part{
+    border: none;;
+    width: 20%;
+    text-align: center;
+}
+
+.bottom-box{
+    width: 10%;
+    text-align: center;
+}
+
+.input-box-body{
+    width: 96%;
+    /* border: solid 3px #FFFF22; */
+    padding: 2%;
+    height: 10vh;
+}
+
+.input-box-bottom-4{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #E84447;
+    color:#060710;
+    border-color: #060710;
+}
+
+.input-box-bottom-3{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background:  #EB6000;
+    color:#060710;
+    border-color: #060710;
+}
+
+
+.input-box-bottom-2{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #ffeb3b;
+    color:#060710;
+    border-color: #060710;
+}
+
+.input-box-bottom-1{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #00FC9B;
+    color:#060710;
+    border-color: #060710;
+}
+
+.input-box-bottom-5{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-bottom-6{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+
+.input-box-bottom-7{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-bottom-8{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-bottom-9{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-bottom-10{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-bottom{
+    width: 96%;
+    border: solid 3px #060710;
+    padding: 2%;
+    height: 18vh;
+    background: #0B2336;
+    color:#060710;
+    border-color: #060710;
+}
+
+
+@keyframes pulse {
+    0% {
+        /* opacity: 0; */
+        background: #002A39;
+      }
+    50% {
+      /* opacity: 0; */
+      background: #E84447;
+    }
+}
+  
+.input-box-header{
+    width: 96%;
+    /* border: solid 3px #FFFF22; */
+    border-bottom: none;
+    padding: 2%;
+    margin-top: 2px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-box-header-bottom{
+    width: 96%;
+    font-size: 0.6em;
+    border: solid 3px #060710;
+    border-bottom: none;
+    padding: 2%;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    height:26px;
+    background:#0F1A33;
+    color:#FFFFFF;
+    border-color: #060710;
+}
+
+.input-box-footer{
+    width: 96%;
+    /* border: solid 3px #FFFF22; */
+    border-top: none;
+    padding: 2%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-bottom{
+    display:block;
+    margin-top: 4px;
+    font-size: 0.8em;
+}
+
+.label-total-bottom{
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold !important;
+    padding-top: 3px;
+    margin-bottom: -6px;
+    font-family: sans-serif;
+    
+}
